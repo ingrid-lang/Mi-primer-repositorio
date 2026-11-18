@@ -1,42 +1,48 @@
+<?php
+// Ejercicio 61 - Matrices
+// MatrizA: de 10 en 10 desde 100
+// MatrizB: de 20 en 20 desde 500
+// MatrizC: suma de A + B
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Ej61 - Matrices</title>
-    <style>
+$A = [];
+$B = [];
+$C = [];
+$valorA = 100;
+$valorB = 500;
 
-</head>
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        $A[$i][$j] = $valorA;
+        $B[$i][$j] = $valorB;
+        $C[$i][$j] = $A[$i][$j] + $B[$i][$j];
+        $valorA += 10;
+        $valorB += 20;
+    }
+}
+
+function mostrar($matriz, $titulo) {
+    echo "<h3>$titulo</h3>";
+    echo "<table border='1' cellpadding='10'>";
+    for ($i = 0; $i < 3; $i++) {
+        echo "<tr>";
+        for ($j = 0; $j < 3; $j++) {
+            echo "<td>" . $matriz[$i][$j] . "</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
+}
+?>
+
+<html>
 <body>
-    <h1>61.- Matrices A, B y C</h1>
-
+    <h2>Ejercicio 61 - Matrices</h2>
     <?php
-    // MatrizA: valores de 10 en 10 iniciando en 100
-    $matrizA = [];
-    $valorA = 100;
-    for ($i = 0; $i < 3; $i++) {
-        for ($j = 0; $j < 3; $j++) {
-            $matrizA[$i][$j] = $valorA;
-            $valorA += 10;
-        }
-    }
-
-    // MatrizB: valores de 20 en 20 iniciando en 500
-    $matrizB = [];
-    $valorB = 500;
-    for ($i = 0; $i < 3; $i++) {
-        for ($j = 0; $j < 3; $j++) {
-            $matrizB[$i][$j] = $valorB;
-            $valorB += 20;
-        }
-    }
-
-    // MatrizC: suma de A y B 
-    $matrizC = [];
-    for ($i = 0; $i < 3; $i++) {
-        for ($j = 0; $j < 3; $j++) {
-            $matrizC[$i][$j] = $matrizA[$i][$j] + $matrizB[$i][$j];
-        }
-    }
+        mostrar($A, "MatrizA");
+        mostrar($B, "MatrizB");
+        mostrar($C, "MatrizC");
+    ?>
+</body>
+</html>
 
 
